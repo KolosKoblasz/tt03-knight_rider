@@ -18,7 +18,7 @@ module brightness_ctrl #
     localparam PWM_75     = (PWM_RATE    * 3 / 4) - 1; // Active lead is on in  75% of the PWM period
     localparam PWM_100    = (PWM_RATE    * 4 / 4) - 1; // Active lead is on in 100% of the PWM period
 
-    localparam PWM_CNTR_WIDTH = 7; // Depends on the ratio of CLK_FREQ and PWM frequency)
+    localparam PWM_CNTR_WIDTH = 7; // Depends on the ratio of CLK_FREQ and PWM frequency
 
     // Input sync and edge detection
     reg [3:0]  brightness_shr;
