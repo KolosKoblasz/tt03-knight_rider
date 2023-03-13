@@ -46,7 +46,6 @@ module light_shift #
     always @(posedge clk) begin
         if (reset) begin
             dir <= LEFT;
-
         end
         else begin
             if (led_shr[OUT_WIDTH-1:OUT_WIDTH-2] == LEFT_END) begin // Active bit is at the left most position

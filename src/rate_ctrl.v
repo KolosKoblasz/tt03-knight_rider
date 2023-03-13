@@ -28,11 +28,9 @@ module rate_ctrl #
     always @(posedge clk) begin
         if (reset) begin
             change_rate_shr <= 0;
-
         end
         else begin
             change_rate_shr <= {change_rate_shr [2:0] , change_rate};
-
         end
     end
 

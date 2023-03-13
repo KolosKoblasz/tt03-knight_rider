@@ -80,7 +80,7 @@ module brightness_ctrl #
 
 
     logic [PWM_CNTR_WIDTH-1:0] brightness_level; // This variable contains how long should be
-                                                // the active LED switched on in a PWM period.
+                                                 // the active LED switched on in a PWM period.
 
     // Brightness control mux
     always @(*) begin
@@ -93,6 +93,7 @@ module brightness_ctrl #
         endcase
     end
 
-    assign pwm_enable = (pwm_cntr <= brightness_level) ? 1'b1 : 1'b0; // This variable enables the active LED.
+    // This variable enables the active LED.
+    assign pwm_enable = (pwm_cntr <= brightness_level) ? 1'b1 : 1'b0;
 
 endmodule
