@@ -12,11 +12,11 @@ module brightness_ctrl #
 );
     localparam RISING_EDGE  = 2'b10;
 
-    localparam PWM_RATE   = (CLK_FREQ    / 50  ) - 1; // Active lead blinks on and off 50 times per second
-    localparam PWM_25     = (PWM_RATE    * 1 / 4) - 1; // Active lead is on in  25% of the PWM period
-    localparam PWM_50     = (PWM_RATE    * 2 / 4) - 1; // Active lead is on in  50% of the PWM period
-    localparam PWM_75     = (PWM_RATE    * 3 / 4) - 1; // Active lead is on in  75% of the PWM period
-    localparam PWM_100    = (PWM_RATE    * 4 / 4) - 1; // Active lead is on in 100% of the PWM period
+    localparam PWM_RATE   = (CLK_FREQ    / 50  ) - 1;  // Active LED blinks on and off 50 times per second
+    localparam PWM_25     = (PWM_RATE    * 1 / 4); // Active LED is on in  25% of the PWM period
+    localparam PWM_50     = (PWM_RATE    * 2 / 4); // Active LED is on in  50% of the PWM period
+    localparam PWM_75     = (PWM_RATE    * 3 / 4); // Active LED is on in  75% of the PWM period
+    localparam PWM_100    = (PWM_RATE    * 4 / 4); // Active LED is on in 100% of the PWM period
 
     localparam PWM_CNTR_WIDTH = 7; // Depends on the ratio of CLK_FREQ and PWM frequency
 
@@ -82,7 +82,7 @@ module brightness_ctrl #
     logic [PWM_CNTR_WIDTH-1:0] brightness_level; // This variable contains how long should be
                                                 // the active LED switched on in a PWM period.
 
-    // Rate control mux
+    // Brightness control mux
     always @(*) begin
         case (brightness_sel)
             0 : brightness_level = PWM_25;
